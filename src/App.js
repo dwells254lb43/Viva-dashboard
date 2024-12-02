@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Grid, Box, Typography } from '@mui/material';
+import Sidebar from './components/Sidebar';
+import StatCards from './components/StatCards';
+import Charts from './components/Charts';
+import ResidentsTable from './components/ResidentsTable';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={{ display: 'flex', height: '100vh' }}>
+      <Sidebar />
+      <Box
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          overflowY: 'auto',
+          backgroundColor: '#f1f1f1',
+        }}
+      >
+        <Typography variant="h4" gutterBottom>
+          Portfolio Overview
+        </Typography>
+        <StatCards />
+        <Charts />
+        <ResidentsTable />
+      </Box>
+    </Box>
   );
-}
+};
 
 export default App;
